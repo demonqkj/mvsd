@@ -48,7 +48,7 @@ getgenv().Walkspeed = value
 })
 
 Tab: AddToggle({
-	Name = "Loop speed",
+	Name = "On Speed",
 	Callback = function(state)
 		print(value)
 getgenv().loopW = state
@@ -76,7 +76,7 @@ getgenv().Jumppower = value
 })
 
 Tab: AddToggle({
-	Name = "Loop jump power",
+	Name = "On Jump",
 	Callback = function(state)
 		print(value)
 getgenv().loopJ = state
@@ -92,7 +92,7 @@ getgenv().loopJ = state
 
 
 Tab:AddTextbox({
-	Name = "Fov",
+	Name = "FOV",
 	Default = "",
 	TextDisappear = true,
 	Callback = function(value)
@@ -112,7 +112,7 @@ local Tab = Window:MakeTab({
 
 
 Tab: AddButton({
-	Name = "Esp name",
+	Name = "Esp Tên",
 	Callback = function(value)
 		print(value)
 local c = workspace.CurrentCamera
@@ -198,7 +198,7 @@ end
 
 
 Tab: AddButton({
-	Name = "Esp box",
+	Name = "Esp Box",
 	Callback = function(value)
 		print(value)
 local plr = game.Players.LocalPlayer
@@ -396,7 +396,7 @@ end
 })
 
 Tab: AddButton({
-	Name = "Esp highlight",
+	Name = "Esp Highlight",
 	Callback = function(value)
 		print(value)
 local FillColor = Color3.fromRGB(65,255,0)
@@ -452,7 +452,7 @@ end
 })
 
 Tab: AddButton({
-	Name = "Esp skeleton",
+	Name = "Esp Skeleton",
 	Callback = function(value)
 		print(value)
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Blissful4992/ESPs/main/UniversalSkeleton.lua"))()
@@ -481,7 +481,7 @@ end
 })
 
 Tab: AddButton({
-	Name = "Sever hop",
+	Name = "Đổi Server",
 	Callback = function(value)
 		print(value)
 local module = loadstring(game:HttpGet"https://raw.githubusercontent.com/LeoKholYt/roblox/main/lk_serverhop.lua")()
@@ -491,7 +491,7 @@ end
 })
 
 Tab: AddButton({
-	Name = "Rejoin",
+	Name = "Ra vào Lại",
 	Callback = function(value)
 		print(value)
 local ts = game:GetService("TeleportService")
