@@ -499,6 +499,15 @@ local p = game:GetService("Players").LocalPlayer
 ts:Teleport(game.PlaceId, p)
 end
 })
+Tab: AddButton({
+	Name = "Infinite Yield",
+	Callback = function(value)
+		print(value)
+local module = loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
+
+module:Teleport(game.PlaceId)
+end
+})
 
 Tab: AddButton({
 	Name = "Fix lag",
