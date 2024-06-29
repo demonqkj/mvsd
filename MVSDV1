@@ -1,5 +1,5 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({IntroText = "by demonkjq",Name = "demonkjq | MVSD", HidePremium = false, SaveConfig = true, ConfigFolder = ""})
+local Window = OrionLib:MakeWindow({IntroText = "by thanhdanh6446",Name = "TDanh | Murder vs sheriff", HidePremium = false, SaveConfig = true, ConfigFolder = ""})
 
 local Tab = Window:MakeTab({
 	Name = "Player",
@@ -48,7 +48,7 @@ getgenv().Walkspeed = value
 })
 
 Tab: AddToggle({
-	Name = "On Speed",
+	Name = "Loop speed",
 	Callback = function(state)
 		print(value)
 getgenv().loopW = state
@@ -76,7 +76,7 @@ getgenv().Jumppower = value
 })
 
 Tab: AddToggle({
-	Name = "On Jump",
+	Name = "Loop jump power",
 	Callback = function(state)
 		print(value)
 getgenv().loopJ = state
@@ -92,7 +92,7 @@ getgenv().loopJ = state
 
 
 Tab:AddTextbox({
-	Name = "FOV",
+	Name = "Fov",
 	Default = "",
 	TextDisappear = true,
 	Callback = function(value)
@@ -112,7 +112,7 @@ local Tab = Window:MakeTab({
 
 
 Tab: AddButton({
-	Name = "Esp Tên",
+	Name = "Esp name",
 	Callback = function(value)
 		print(value)
 local c = workspace.CurrentCamera
@@ -198,7 +198,7 @@ end
 
 
 Tab: AddButton({
-	Name = "Esp Box",
+	Name = "Esp box",
 	Callback = function(value)
 		print(value)
 local plr = game.Players.LocalPlayer
@@ -396,7 +396,7 @@ end
 })
 
 Tab: AddButton({
-	Name = "Esp Highlight",
+	Name = "Esp highlight",
 	Callback = function(value)
 		print(value)
 local FillColor = Color3.fromRGB(65,255,0)
@@ -420,7 +420,68 @@ local function Highlight(plr)
     Highlight.FillColor = FillColor
     Highlight.DepthMode = DepthMode
     Highlight.FillTransparency = FillTransparency
-    Highlight.OUpdate",
+    Highlight.OutlineColor = OutlineColor
+    Highlight.OutlineTransparency = 0
+    Highlight.Parent = Storage
+    
+    local plrchar = plr.Character
+    if plrchar then
+        Highlight.Adornee = plrchar
+    end
+
+    connections[plr] = plr.CharacterAdded:Connect(function(char)
+        Highlight.Adornee = char
+    end)
+end
+
+Players.PlayerAdded:Connect(Highlight)
+for i,v in next, Players:GetPlayers() do
+    Highlight(v)
+end
+
+Players.PlayerRemoving:Connect(function(plr)
+    local plrname = plr.Name
+    if Storage[plrname] then
+        Storage[plrname]:Destroy()
+    end
+    if connections[plr] then
+        connections[plr]:Disconnect()
+    end
+end)
+end
+})
+
+Tab: AddButton({
+	Name = "Esp skeleton",
+	Callback = function(value)
+		print(value)
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Blissful4992/ESPs/main/UniversalSkeleton.lua"))()
+local Skeletons = {}
+for _, Player in next, game.Players:GetChildren() do
+	table.insert(Skeletons, Library:NewSkeleton(Player, true));
+end
+game.Players.PlayerAdded:Connect(function(Player)
+	table.insert(Skeletons, Library:NewSkeleton(Player, true));
+end) 
+end
+})
+
+local Tab = Window:MakeTab({
+	Name = "Misc",
+	Icon = "rbxassetid://15841341821",
+	PremiumOnly = false
+})
+
+Tab: AddButton({
+	Name = "Infinite jump",
+	Callback = function(value)
+		print(value)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/BsGlitch/-nfJumps/main/BsGlitch"))()
+end
+})
+
+Tab: AddButton({
+	Name = "Sever hop",
 	Callback = function(value)
 		print(value)
 local module = loadstring(game:HttpGet"https://raw.githubusercontent.com/LeoKholYt/roblox/main/lk_serverhop.lua")()
@@ -430,7 +491,7 @@ end
 })
 
 Tab: AddButton({
-	Name = "Ra vào Lại",
+	Name = "Rejoin",
 	Callback = function(value)
 		print(value)
 local ts = game:GetService("TeleportService")
@@ -440,7 +501,7 @@ end
 })
 
 Tab: AddButton({
-	Name = "Fix lag",
+	Name = "No lag",
 	Callback = function(value)
 		print(value)
 local ToDisable = {
