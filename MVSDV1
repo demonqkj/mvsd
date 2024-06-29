@@ -420,68 +420,7 @@ local function Highlight(plr)
     Highlight.FillColor = FillColor
     Highlight.DepthMode = DepthMode
     Highlight.FillTransparency = FillTransparency
-    Highlight.OutlineColor = OutlineColor
-    Highlight.OutlineTransparency = 0
-    Highlight.Parent = Storage
-    
-    local plrchar = plr.Character
-    if plrchar then
-        Highlight.Adornee = plrchar
-    end
-
-    connections[plr] = plr.CharacterAdded:Connect(function(char)
-        Highlight.Adornee = char
-    end)
-end
-
-Players.PlayerAdded:Connect(Highlight)
-for i,v in next, Players:GetPlayers() do
-    Highlight(v)
-end
-
-Players.PlayerRemoving:Connect(function(plr)
-    local plrname = plr.Name
-    if Storage[plrname] then
-        Storage[plrname]:Destroy()
-    end
-    if connections[plr] then
-        connections[plr]:Disconnect()
-    end
-end)
-end
-})
-
-Tab: AddButton({
-	Name = "Esp Skeleton",
-	Callback = function(value)
-		print(value)
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Blissful4992/ESPs/main/UniversalSkeleton.lua"))()
-local Skeletons = {}
-for _, Player in next, game.Players:GetChildren() do
-	table.insert(Skeletons, Library:NewSkeleton(Player, true));
-end
-game.Players.PlayerAdded:Connect(function(Player)
-	table.insert(Skeletons, Library:NewSkeleton(Player, true));
-end) 
-end
-})
-
-local Tab = Window:MakeTab({
-	Name = "Misc",
-	Icon = "rbxassetid://15841341821",
-	PremiumOnly = false
-})
-
-Tab: AddButton({
-	Name = "Infinite jump",
-	Callback = function(value)
-		print(value)
-loadstring(game:HttpGet("https://raw.githubusercontent.com/BsGlitch/-nfJumps/main/BsGlitch"))()
-end
-})
-
-Tab: AddButton({
-	Name = "Đổi Server",
+    Highlight.OUpdate",
 	Callback = function(value)
 		print(value)
 local module = loadstring(game:HttpGet"https://raw.githubusercontent.com/LeoKholYt/roblox/main/lk_serverhop.lua")()
