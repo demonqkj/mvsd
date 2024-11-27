@@ -1,5 +1,5 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({IntroText = "by thanhdanh6446",Name = "TDanh | MVSD", HidePremium = false, SaveConfig = true, ConfigFolder = ""})
+local Window = OrionLib:MakeWindow({IntroText = "by thanhdanh6446",Name = "TDanh | premium", HidePremium = false, SaveConfig = true, ConfigFolder = ""})
 
 local Tab = Window:MakeTab({
 	Name = "Player",
