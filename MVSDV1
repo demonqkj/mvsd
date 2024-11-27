@@ -33,5 +33,5 @@ end
 end)
 	end	  
 })
-Tab:AddToggle('InstaInteract',{Text='Instant Interact',Default=false})
+ae:AddDivider()ae:AddToggle('InstaInteract',{Text='Instant Interact',Default=false})ae:AddToggle('DisableRobloxVoid',{Text='Disable Roblox Void',Default=false})
 OrionLib:Init()
